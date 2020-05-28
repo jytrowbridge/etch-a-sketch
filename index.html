@@ -25,24 +25,21 @@
     <button id="clear">Clear</button>
     <style>
       body {
-        margin: 0;    /*necessary to center div using flex without adding scroll */
+        margin: 0;    /* necessary to center div using flex without adding scroll */
         height: 100vh;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
         background-color: rgb(127, 214, 214);
-        /* background: url("img/vetruvian2.jpg"); */
         font-family: sans-serif;
         font-size: 1.5rem;
-
       }
 
       h1 {
         font-size: 3rem;
       }
 
-      input[type=number] {
+      .option-input {
         font-size: 1.5rem;
         width: 50px;
       }
@@ -77,10 +74,6 @@
       #display-options > * {
         display: inline-block;
         margin: 5px
-      }
-
-      .option-input {
-        width: 30px;
       }
 
       #drawing-options > * {
@@ -123,7 +116,7 @@
       }
 
       /* Click-and-hold drawing functionality */
-      window.addEventListener('mousedown', event => {
+      sketchDisplay.addEventListener('mousedown', event => {
         event.preventDefault();
         const squares = document.querySelectorAll('.display-square');
         squares.forEach(square => {
@@ -132,7 +125,7 @@
       });
 
       /* Click-and-hold drawing functionality */
-      window.addEventListener('mouseup', () => {
+      sketchDisplay.addEventListener('mouseup', () => {
         const squares = document.querySelectorAll('.display-square');
         squares.forEach(square => {
           square.removeEventListener('mouseover', draw)
